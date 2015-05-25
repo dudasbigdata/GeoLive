@@ -8,30 +8,25 @@
 				<h1>Listado de palabras</h1>
 			</header>
 			<div class="content">
-                            <form method="post" action="{{ url_for('mostrar') }}" onsubmit="return formulario(this)">
+
                                 <fieldset class="fieldsetPadre">
                                 <p><legend>Palabras para la escucha:</legend></p>
-
-								<fieldset class="filtrosFieldset">
-                                ESTO ES PROVISIONAL
-                                 <div id="content">
+				<fieldset class="filtrosFieldset">
+				 <div id="content">
                                 {% for i in name: %}
                                 <li> {{i}}</li>
                                 {% endfor %}
                                  </div>
+                    <p></p>
+                                <p>para visualizar seleccione la opcion que desee del menu superior.</p>
                                 </fieldset>
-                                    <p></p>
-                                    <p><legend>seleccione la opcion de visualizacion que mas le guste:</legend></p>
-                                    <a href="{{ url_for('mostrar') }}">Normal</a>
-                                    <a href="{{ url_for('mostrarTorque') }}">Torque </a>
-                                    <a href="{{ url_for('mostrarCalor') }}">Calor</a>
-                                    <a href="{{ url_for('mostrarCluster') }}">Cluster</a>
-                            </form>
 
+
+                                </fieldset>
 
 									<br>&nbsp</br>
 
-								</fieldset>
+
                             </form>
 			</div>
 		</article>

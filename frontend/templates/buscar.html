@@ -1,7 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!--var cuisines = ["Chinese","Indian"];-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        function Cargar()
+        { var sel = document.getElementById('palabras');
+          for(var i = 0; i < name.length; i++)
+          {
+              var opt = document.createElement('option');
+              opt.innerHTML = name[i];
+              opt.value = name[i];
+              sel.appendChild(opt);
+          }
+          alert('ojala salga algo');
+          {{name}}
+        }
+
+    </script>
+
         <script>
 
         $(document).ready(function()
@@ -55,42 +73,46 @@
         }
 
         </script>
+<body onload="Cargar()">
+
 	<section id="main-content">	
 		<article>
 			<header>
 				<h1>Buscar</h1>
 			</header>
 			<div class="content">
-                            <form method="post" action="{{ url_for('mostrar') }}" onsubmit="return formulario(this)">
+
                                 <fieldset class="fieldsetPadre">
-                                <p><legend>Añada o borre las palabras a escuhar:</legend></p>
+                                    <p><legend>Añada o borre las palabras a escuhar:</legend></p>
+								    <fieldset class="filtrosFieldset">
 
-								<fieldset class="filtrosFieldset">
+                                            <form method="post" action="{{ url_for('verPalabras') }}" onsubmit="return formulario(this)">
+                                                <div class="controles">
+                                                    <input type=text   name="t1" id="t1">
+                                                    <input type=button name=b1 id=b1 value="Añadir">
+                                                    </br>
 
-                                <input type=text   name="t1" id="t1">
-                                <input type=button name=b1 id=b1 value="Añadir">
-                                </br>
-                                <input type=button name=b2 id=b2 value=Borrar>
-                                <br><br>
+                                                    <br><br>
 
-                                <select id="palabras" name="palabras" type="text" size="8">
-                                </select> <br><br>
-                                <input id="terms" name="terms"type="hidden">
-                                    <!--{% print terms %}-->
-                                    <!--{% print request.form['terms'] %}-->
-                                    <!--{% for i in name: %}-->
-                                    <!--print i-->
-                                    <!--{% endfor %}-->
-                                <input type="submit"/>
-                            </form>
+                                                    <select id="palabras" name="palabras" type="text" size="8" style="width:175px">
+                                                    </select>
+                                                    <input type=button name=b2 id=b2 value=Borrar>
+                                                    <br><br>
+                                                    <input id="terms" name="terms"type="hidden">
 
+                                                    <!--{% for i in name: %}-->
+                                                    <!--<li> {{i}}</li>-->
+                                                    <!--{% endfor %}-->
+                                                        <!--{{name}}-->
 
-									<br>&nbsp</br>
-								</fieldset>
-								</fieldset>
-                            </form>
+                                                    <input type="submit"/>
+                                                </div>
+                                            </form>
+                                    </fieldset>
+                                </fieldset>
+                                <br>&nbsp</br>
 			</div>
 		</article>
 	</section> 	
-
+</body>
 {% endblock %}
