@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+{% block content %}
+    <meta charset="ISO-8859-1">
+	<section id="main-content">
+		<article>
+			<header>
+				<h1>Listado de palabras</h1>
+			</header>
+			<div class="content">
+                            <form method="post" action="{{ url_for('mostrar') }}" onsubmit="return formulario(this)">
+                                <fieldset class="fieldsetPadre">
+                                <p><legend>Palabras para la escucha:</legend></p>
+
+								<fieldset class="filtrosFieldset">
+                                ESTO ES PROVISIONAL
+                                 <div id="content">
+                                {% for i in name: %}
+                                <li> {{i}}</li>
+                                {% endfor %}
+                                 </div>
+                                </fieldset>
+                                    <p></p>
+                                    <p><legend>seleccione la opcion de visualizacion que mas le guste:</legend></p>
+                                    <a href="{{ url_for('mostrar') }}">Normal</a>
+                                    <a href="{{ url_for('mostrarTorque') }}">Torque </a>
+                                    <a href="{{ url_for('mostrarCalor') }}">Calor</a>
+                                    <a href="{{ url_for('mostrarCluster') }}">Cluster</a>
+                            </form>
+
+
+									<br>&nbsp</br>
+
+								</fieldset>
+                            </form>
+			</div>
+		</article>
+	</section>
+
+{% endblock %}

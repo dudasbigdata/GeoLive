@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es"> 
+
+<!---------------------------------------------------------------------------------------------------------------------- -->
+<head>
+<title>BigData</title> 
+<meta charset="utf-8">
+	    <link rel="stylesheet" 	  href="{{ url_for('static', filename='css/estilos.css') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='Imagenes/mundo.png') }}">
+
+</head>
+
+<!---------------------------------------------------------------------------------------------------------------------- -->
+
+<body>
+	<header id="main-header">		
+		<a id="logo-header" href="#">
+                    <a href="{{ url_for('inicio') }}"> <img src="{{url_for('static', filename='Imagenes/1398449560-big-data-logo.png') }} " width="195"  height="50" alt=""></a>
+		</a> 
+		<nav>
+			<ul>
+				<li><a href="{{ url_for('inicio') }}" >Inicio </a></li>
+				<li><a href="{{ url_for('buscar') }}">Buscar</a></li>
+				<li><a href="{{ url_for('mostrar') }}">Normal</a></li>
+                <li><a href="{{ url_for('mostrarTorque') }}">Torque </a></li>
+				<li><a href="{{ url_for('mostrarCalor') }}">Calor</a></li>
+				<li><a href="{{ url_for('mostrarCluster') }}">Cluster</a></li>
+			</ul>
+		</nav>
+           
+	</header>
+
+
+<div class="container">
+	<!-- child template -->
+	{% block content %}{% endblock %}
+
+	<!-- errors -->
+	{% if error %}
+	<p class="error"><strong>Error:</strong> {{ error }}</p>
+	{% endif %}
+
+	<!-- messages -->
+	{% for message in get_flashed_messages() %}
+	{{ message }}
+	{% endfor %}
+</div>
+
+
+
+
+	<footer id="main-footer">
+		&copy; 2015 <a href="#">UpsaTFG</a>
+	</footer>
+
+
+</body>
+
+<!---------------------------------------------------------------------------------------------------------------------- -->
+
+</html>
