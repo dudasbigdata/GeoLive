@@ -19,7 +19,7 @@
 		<article>
 
 			<header>
-				<h1>Mapa</h1>
+				<h1>Visualización &nbsp;&nbsp;Agrupada</h1>
 			</header>
 			<div class="content">
     <div id="map"></div>
@@ -40,13 +40,13 @@
         var map = L.map('map', { 
           zoomControl: false,
           center: [0, 0],
-          zoom: 3
+          zoom: 2
         });
         // add a nice baselayer from Stamen 
         L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
           attribution: 'Stamen'
         }).addTo(map);
-        cartodb.createLayer(map, 'https://bigdatatfg.cartodb.com/api/v2/viz/7324a4c8-0055-11e5-82ae-0e4fddd5de28/viz.json')
+        cartodb.createLayer(map, 'https://bigdatatfg.cartodb.com/api/v2/viz/7324a4c8-0055-11e5-82ae-0e4fddd5de28/viz.json',{refreshTime: 2000})
          .addTo(map)
          .on('done', function(layer) {
            // get sublayer 0 and set the infowindow template

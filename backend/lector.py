@@ -25,14 +25,14 @@ cartodb_domain = 'bigdatatfg'
 cl = CartoDBAPIKey(API_KEY, cartodb_domain)
 
 # Inicio de las diferentes sentencias para las tablas de CartoDB
-sentencia = "INSERT INTO tweets (id_tweet, nombre_usuario, creado, texto, latitud, longitud, localizacion, " \
+sentencia = "INSERT INTO tweets (id_tweet, nombre_usuario, fecha, creado, texto, latitud, longitud, localizacion, " \
             "codigo_pais, idioma, origen) VALUES "
 
 cadenavalores = ""
 valores = ""
 
 config_mysql = {
-    'user': 'carlos',
+    'user': 'upsa',
     'password': '12345',
     'host': 'localhost',
     'database': 'pruebaTwitter',
@@ -112,6 +112,7 @@ for tweet in tweets:
             usuario = ""
         else:
             usuario = tweet['user']['screen_name']
+            usuario = "@" + str(usuario)
 
     # Comprobacion creado
     if 'created_at' not in tweet:
@@ -175,7 +176,7 @@ for tweet in tweets:
         origen = localizacion_final[2]
 
         localizacion = unescapeMySQL(localizacion)
-        parametros = ("'" + str(id_tweet) + "', '" + str(usuario) + "', '" + str(creado) + "', '" + texto + "', " + str(latitud) + ", " + str(longitud) + ", '" + localizacion + "', '" + str(codigo_pais) + "', '" + str(idioma) + "', '" + str(origen) +"'").encode('utf-8')
+        parametros = ("'" + str(id_tweet) + "', '" + str(usuario) + "', '" + creado + "', '" + str(creado) + "', '" + texto + "', " + str(latitud) + ", " + str(longitud) + ", '" + localizacion + "', '" + str(codigo_pais) + "', '" + str(idioma) + "', '" + str(origen) +"'").encode('utf-8')
         valores = valores + "(" + parametros + "),"
         contador = contador + 1
 

@@ -14,10 +14,6 @@ import os
 # Initialize the Flask application
 app = Flask(__name__)
 
-terms=[]
-
-
-
 @app.route('/')
 def form():
     return render_template('index.html')
@@ -31,7 +27,16 @@ def inicio():
 
 @app.route('/buscar/', methods=['POST','GET'])
 def buscar():
-    return render_template('buscar.html')
+    global terms
+
+    archiTerms=open('../data/terms.txt','r')
+    terms = archiTerms.readlines()
+    archiTerms.close()
+    mytrack = str(",".join(terms))
+    terms = mytrack.split(",")
+    print terms
+
+    return render_template('buscar.html', name=terms)
 
 ####--------------------------------------------------------------------------------------
 @app.route('/verPalabras/', methods=['POST','GET'])
@@ -52,16 +57,29 @@ def verPalabras():
     return render_template('form_action.html', name=terms)
 
 ####--------------------------------------------------------------------------------------
-# @app.route('/mostrar/', methods=['POST','GET'])
-# def mostrar():
-#     terms=request.form['terms']
-#     return render_template('mostrar.html', name=terms)
-
-####--------------------------------------------------------------------------------------
 @app.route('/mostrar/', methods=['POST','GET'])
 def mostrar():
-    terms=request.form['terms']
-    return render_template('mostrar.html')
+    print request
+    global terms
+
+    if request.method == 'POST':
+        term=request.form['terms']
+        terms = [str(t) for t in term.split(",")]
+
+        #print terms #aqui el array de palabras estaria relleno, viendolo en la consola lo comprobamos
+
+        #----------------------------
+        #con estras tres lineas hago el fichero lo relleno con el array de palabras y lo cierro
+        mytrack = str(",".join(terms))
+        archiTerms=open('./data/terms.txt','wa')
+        archiTerms.writelines(mytrack)
+        #----------------------------
+        print "los terminos son"+str(terms)
+
+
+    print terms
+
+    return render_template('mostrar.html', name=terms)
 
 ####--------------------------------------------------------------------------------------
 
@@ -81,7 +99,8 @@ def mostrarCluster():
 
 ####--------------------------------------------------------------------------------------
 if __name__ == '__main__':
-	app.run(debug=True)
+    terms=[]
+    app.run(debug=True)
 
 
 #=======================================================================================================================

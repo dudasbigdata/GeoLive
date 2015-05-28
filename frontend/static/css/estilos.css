@@ -5,7 +5,6 @@
     margin: 0 auto;
     width: 100%;	
     background-color: white;
-    
 }
 
 #cabecera 
@@ -21,7 +20,6 @@
     alignment-adjust: central;
     alignment-baseline: central;
     margin-left: 45.5%;
-    
 }
 
 #menu
@@ -35,10 +33,16 @@
 #opcion_menu
 { 
     background-color: fuchsia;
-
     float: left;
     height: 40px;
     width: 25%;
+}
+
+.controles
+{
+
+    margin-right:15%;
+    margin-left:15%;
 }
 
 #cuerpo 
@@ -49,18 +53,15 @@
     width: 50%;
 }
 
-
-
 body 
 {
     margin: 0;
     padding: 0;
     font-family: Helvetica, Arial, sans-serif;
     color: #666;
-    background: #ebe5e5; 
+    background: #ebe5e5;
     font-size: 1em;
     line-height: 1.5em;
-    
 }
 
 p
@@ -92,7 +93,8 @@ img
     height: auto;
 }
 
-input:focus {
+input:focus
+{
   border: 2px solid #000;
   background: #F3F3F3;
 }
@@ -117,10 +119,9 @@ legend
 {
     text-align:left; /* Puedes cambiarlo por center o right */
     font-weight:bold; /* Estilo de la fuente del título */
-    color: #733506; /* Color del título */
+    color: #4E443C; /* Color del título */
     font-family: 'Arvo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px;
-        
 }
 
 /*
@@ -129,7 +130,7 @@ legend
 #logo-header 
 {
     float: left;
-    padding: 15px 2 2 20px;
+    padding: 2px 2 2 2px;
     text-decoration: none;
 }
 
@@ -192,16 +193,15 @@ nav ul li a:hover
 {
     background: white;
     width: 90%;
-    max-width: 1000px;
+    max-width: 1480px;
     margin: 20px auto;
     box-shadow: 0 0 10px rgba(0,0,0,.1);
-    
 }
  
 #main-content header,
 #main-content .content 
 {
-    padding: 20px;
+    padding: 10px;
 }
         
 #main-footer 
@@ -223,34 +223,36 @@ nav ul li a:hover
     color: black;
 }
 
-.fieldsetLogin
+.contenidoInfo
 {
-    border:2px groove #ccc; /* Borde */
-    background:  #eac9a7; /* Color de fondo */
-    //color:#000; /* Color del texto de todo el contenido */
-    font-family: Helvetica, Arial, sans-serif;
-    alignment-adjust: central;
-    alignment-baseline: central;  
-    margin-left:165px;
-    height:220px; 
-    width:400px;
-    text-align: center;
-       
+    margin-left: 90px;
+    margin-right: 90px;
+    margin-bottom: 90px;
 }
 
 .filtrosFieldset 
 {
     border:2px groove #ccc; /* Borde */
-    background:  #eac9a7; /* Color de fondo */
+    /*background:  #eac9a7; /* Color de fondo */
+        background: #ebe5e5;
     color:  black; /* Color del texto de todo el contenido */
     font-family: Helvetica, Arial, sans-serif;
-    height:270px;
+    margin-right:10%;
+    margin-left:10%;
 }
 
 .fieldsetPadre
 {
-    background:      #f2bf98;  
+    background: #ebe5e5;
+    margin-right:25%;
+    margin-left:25%;
 }
 
+.galeria
+{
+    float: left;
+    margin-right:70px;
+    margin-left:40px;
+}
 
 
