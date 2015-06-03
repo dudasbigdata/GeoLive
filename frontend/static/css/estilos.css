@@ -1,4 +1,4 @@
-@import '//fonts.googleapis.com/css?family=Lato:400,400italic|Arvo:700,400,400italic';
+﻿@import '//fonts.googleapis.com/css?family=Lato:400,400italic|Arvo:700,400,400italic';
 
 #contenedor
 {
@@ -40,9 +40,14 @@
 
 .controles
 {
+<<<<<<< HEAD
 
     margin-right:15%;
     margin-left:27%;
+=======
+    margin-right:15%;
+    margin-left:15%;
+>>>>>>> origin/master
 }
 
 #cuerpo 
@@ -236,23 +241,33 @@ nav ul li a:hover
     background: #DDD3D3 ;
     color:  black; /* Color del texto de todo el contenido */
     font-family: Helvetica, Arial, sans-serif;
+<<<<<<< HEAD
     margin-right:15%;
     margin-left:15%;
     border-radius: 35px 35px 35px 35px;
     -moz-border-radius: 35px 35px 35px 35px;
     -webkit-border-radius: 35px 35px 35px 35px;
     border: 0px solid #000000;
+=======
+    margin-right:10%;
+    margin-left:10%;
+>>>>>>> origin/master
 }
 
 .fieldsetPadre
 {
     background: #ebe5e5;
+<<<<<<< HEAD
     margin-right:15%;
     margin-left:15%;
     border-radius: 35px 35px 35px 35px;
     -moz-border-radius: 35px 35px 35px 35px;
     -webkit-border-radius: 35px 35px 35px 35px;
     border: 0px solid #000000;
+=======
+    margin-right:25%;
+    margin-left:25%;
+>>>>>>> origin/master
 }
 
 .galeria
