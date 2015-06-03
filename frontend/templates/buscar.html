@@ -1,21 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!--var cuisines = ["Chinese","Indian"];-->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script type="text/javascript">
         function Cargar()
-        { var sel = document.getElementById('palabras');
-          for(var i = 0; i < name.length; i++)
+        { 
+		var j = 0
+		var palabras = [];
+		"{% for i in name: %}";
+		palabras[j] = "{{i}}";
+		j = j + 1;
+		"{% endfor %}";
+
+	var sel = document.getElementById('palabras');
+          for(var i = 0; i < palabras.length; i++)
           {
               var opt = document.createElement('option');
-              opt.innerHTML = name[i];
-              opt.value = name[i];
+              opt.innerHTML = palabras[i];
+              opt.value = palabras[i];
               sel.appendChild(opt);
           }
-          alert('ojala salga algo');
-          {{name}}
+          
         }
 
     </script>
@@ -74,16 +79,14 @@
 
         </script>
 <body onload="Cargar()">
-
 	<section id="main-content">	
 		<article>
 			<header>
 				<h1>Buscar</h1>
 			</header>
 			<div class="content">
-
                                 <fieldset class="fieldsetPadre">
-                                    <p><legend>Añada o borre las palabras a escuhar:</legend></p>
+                                    <p><legend>- Añada o borre las palabras a escuhar:</legend></p>
 								    <fieldset class="filtrosFieldset">
 
                                             <form method="post" action="{{ url_for('verPalabras') }}" onsubmit="return formulario(this)">
@@ -100,12 +103,8 @@
                                                     <br><br>
                                                     <input id="terms" name="terms"type="hidden">
 
-                                                    <!--{% for i in name: %}-->
-                                                    <!--<li> {{i}}</li>-->
-                                                    <!--{% endfor %}-->
-                                                        <!--{{name}}-->
+                                                    <input type="image" src="{{url_for('static', filename='Imagenes/enviar.png') }}" width="120" height="40" alt="" onmouseover="this.style.opacity=0.8;this.filters.alpha.opacity=80" onmouseout="this.style.opacity=0.4;this.filters.alpha.opacity=40"/>
 
-                                                    <input type="submit"/>
                                                 </div>
                                             </form>
                                     </fieldset>

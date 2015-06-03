@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% block content %}
     <meta charset="ISO-8859-1">
@@ -10,26 +9,19 @@
 			<div class="content">
 
                                 <fieldset class="fieldsetPadre">
-                                <p><legend>Palabras para la escucha:</legend></p>
-				<fieldset class="filtrosFieldset">
-				 <div id="content">
-                                {% for i in name: %}
-                                <li> {{i}}</li>
-                                {% endfor %}
-                                 </div>
-                    <p></p>
-                                <p>para visualizar seleccione la opcion que desee del menu superior.</p>
+									<p><legend>Palabras para la escucha:</legend></p>
+									<fieldset class="filtrosFieldset">
+										<div id="content">
+											{% for i in name: %}
+											<li> {{i}}</li>
+											{% endfor %}
+										 </div>
+										<p></p>
+										<p>para visualizar seleccione la opcion que desee del menu superior.</p>
+									</fieldset>
                                 </fieldset>
-
-
-                                </fieldset>
-
 									<br>&nbsp</br>
-
-
-                            </form>
 			</div>
 		</article>
 	</section>
-
 {% endblock %}

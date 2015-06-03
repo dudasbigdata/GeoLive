@@ -84,17 +84,19 @@ for tweet in tweets:
             geolocator = Nominatim()
             if(localizacion != ""):
                 # Nominatim
-                latlong_loc = geolocator.geocode(localizacion, timeout=5)
-                if latlong_loc != None:
+                latlong_loc = geolocator.geocode(localizacion, timeout=60)
+                if (latlong_loc != None) and (latlong_loc != ""):
                     result = [latlong_loc.latitude, latlong_loc.longitude ,"L"]
                 else:
                     # Nominatim
-                    latlong_cod = geolocator.geocode(codigo_pais, timeout=5)
-                    result = [latlong_cod.latitude, latlong_cod.longitude ,"LM"]
+                    latlong_cod = geolocator.geocode(codigo_pais, timeout=60)
+                    if (latlong_cod != None) and (latlong_cod != ""):
+                        result = [latlong_cod.latitude, latlong_cod.longitude ,"LM"]
             elif(codigo_pais != ""):
                 # Nominatim
-                latlong_cod = geolocator.geocode(codigo_pais, timeout=5)
-                result = [latlong_cod.latitude, latlong_cod.longitude ,"C"]
+                latlong_cod = geolocator.geocode(codigo_pais, timeout=60)
+                if (latlong_cod != None) and (latlong_cod != ""):
+                    result = [latlong_cod.latitude, latlong_cod.longitude ,"C"]
 
         return result
 
@@ -144,29 +146,29 @@ for tweet in tweets:
         else:
             codigo_pais = tweet['place']['country_code']
 
-        # Comprobacion de la geolocalizacion
-        if 'geo' not in tweet:
-            latitud = ""
-            longitud = ""
-        elif tweet['geo'] is None:
+    # Comprobacion de la geolocalizacion
+    if 'geo' not in tweet:
+        latitud = ""
+        longitud = ""
+    elif tweet['geo'] is None:
+        latitud = ""
+        longitud = ""
+    else:
+        if 'coordinates' not in tweet['geo']:
             latitud = ""
             longitud = ""
         else:
-            if 'coordinates' not in tweet['geo']:
-                latitud = ""
-                longitud = ""
-            else:
-                latitud = tweet['geo']['coordinates'][0]
-                longitud = tweet['geo']['coordinates'][1]
+            latitud = tweet['geo']['coordinates'][0]
+            longitud = tweet['geo']['coordinates'][1]
 
-        # Comprobacion de la localizacion
-        if 'user' not in tweet:
-                localizacion = ""
+    # Comprobacion de la localizacion
+    if 'user' not in tweet:
+            localizacion = ""
+    else:
+        if 'location' not in tweet['user']:
+            localizacion = ""
         else:
-            if 'location' not in tweet['user']:
-                localizacion = ""
-            else:
-                localizacion = tweet['user']['location']
+            localizacion = tweet['user']['location']
 
     localizacion_final = getLatLon(codigo_pais, latitud, longitud, localizacion)
 
